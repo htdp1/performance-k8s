@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sysbench
+spec:
+  selector:
+    matchLabels:
+      app: sysbench
+  template:
+    metadata:
+      labels:
+        app: sysbench
+    spec:
+      containers:
+      - image: htdp1/sysbench:latest
+        name: sysbench
+        imagePullPolicy: IfNotPresent

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sysbench
+spec:
+  selector:
+    matchLabels:
+      app: sysbench
+  template:
+    metadata:
+      labels:
+        app: sysbench
+    spec:
+      containers:
+      - image: htdp1/sysbench:latest
+        name: sysbench
+        command:
+          - "sleep"
+          - "604800"
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - name: persistent-storage
+          mountPath: /mnt/storage
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: sysbench
