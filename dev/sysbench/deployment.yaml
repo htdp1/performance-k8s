@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: sysbench
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: sysbench
@@ -18,6 +19,13 @@ spec:
           - "sleep"
           - "604800"
         imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 8192Mi
+          requests:
+            cpu: 500m
+            memory: 1024Mi
         volumeMounts:
         - name: persistent-storage
           mountPath: /mnt/storage
