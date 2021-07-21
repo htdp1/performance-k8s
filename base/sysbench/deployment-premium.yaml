@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sysbench-premium
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sysbench-premium
+  template:
+    metadata:
+      labels:
+        app: sysbench-premium
+    spec:
+      containers:
+      - image: htdp1/sysbench:latest
+        name: sysbench-premium
+        command:
+          - "sleep"
+          - "604800"
+        imagePullPolicy: IfNotPresent

@@ -4,7 +4,7 @@ metadata:
   name: sysbench
 spec:
   capacity:
-    storage: 8Gi
+    storage: 500Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
@@ -13,3 +13,21 @@ spec:
   csi:
     driver: efs.csi.aws.com
     volumeHandle: fs-296fe849
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sysbench-premium
+spec:
+  capacity:
+    storage: 500Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-e222a582

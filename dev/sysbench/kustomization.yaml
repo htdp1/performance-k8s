@@ -8,3 +8,4 @@ bases:
 
 patchesStrategicMerge:
 - deployment.yaml
+- deployment-premium.yaml

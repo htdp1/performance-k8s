@@ -9,4 +9,19 @@ spec:
   storageClassName: efs-sc
   resources:
     requests:
-      storage: 8Gi
+      storage: 500Gi
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sysbench-premium
+  namespace: simple
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 500Gi

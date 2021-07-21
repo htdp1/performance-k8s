@@ -6,3 +6,5 @@ namespace: simple
 
 resources:
 - deployment.yaml
+- deployment-premium.yaml
+
