@@ -4,8 +4,8 @@ kind: Kustomization
 namespace: simple
 
 bases:
-- ../../base/sysbench
+- ../../../base/sysbench
 
 patchesStrategicMerge:
 - deployment.yaml
-- deployment-premium.yaml
+# - deployment-premium.yaml
