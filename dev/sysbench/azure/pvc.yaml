@@ -10,3 +10,18 @@ spec:
   resources:
     requests:
       storage: 512Gi
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sysbench-premium
+  namespace: simple
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 512Gi
